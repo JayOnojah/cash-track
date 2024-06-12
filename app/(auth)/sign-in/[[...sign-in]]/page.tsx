@@ -9,12 +9,23 @@ export default function Page() {
         <div className="text-center space-y-4 pt-16">
           <h1 className="font-bold text-3xl text-[#2E2A47]">Welcome Back!</h1>
           <p className="text-base text-[#7E8CA0]">
-            Please sign in to your TrustBank account.
+            Please login to your Trust Bank account.
           </p>
         </div>
         <div className="flex items-center justify-center mt-8">
           <ClerkLoaded>
-            <SignIn path="/sign-in" />
+            <SignIn
+              appearance={{
+                elements: {
+                  signIn: {
+                    start: {
+                      title: "hidden",
+                    },
+                  },
+                },
+              }}
+              path="/sign-in"
+            />
           </ClerkLoaded>
           <ClerkLoading>
             <Loader2 className="animate-spin text-muted-foreground" />
