@@ -3,16 +3,17 @@ import { Trash } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { insertAccountSchema } from "@/db/schema";
+
 import {
   Form,
-  FormControl,
-  FormField,
   FormItem,
   FormLabel,
-  FormMessage,
+  FormField,
+  FormControl,
 } from "@/components/ui/form";
-import { insertAccountSchema } from "@/db/schema";
 
 const formSchema = insertAccountSchema.pick({
   name: true,
@@ -41,7 +42,7 @@ export const AccountForm = ({
   });
 
   const handleSubmit = (values: FormValues) => {
-    console.log({ values });
+    onSubmit(values);
   };
 
   const handleDelete = () => {
@@ -50,7 +51,39 @@ export const AccountForm = ({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSubmit)}></form>
+      <form
+        onSubmit={form.handleSubmit(handleSubmit)}
+        className="space-y-4 pt-4">
+        <FormField
+          name="name"
+          control={form.control}
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name</FormLabel>
+              <FormControl>
+                <Input
+                  disabled={disabled}
+                  placeholder="e.g. Cash, Bank, Credit Card"
+                  {...field}
+                />
+              </FormControl>
+            </FormItem>
+          )}
+        />
+        <Button className="w-full" disabled={disabled}>
+          {id ? "Save Changes" : "Create Account"}
+        </Button>
+        {!!id && (
+          <Button
+            type="button"
+            disabled={disabled}
+            onClick={handleDelete}
+            className="w-full"
+            variant="outline">
+            <Trash className="size-4 mr-2" /> Delete Account
+          </Button>
+        )}
+      </form>
     </Form>
   );
 };
