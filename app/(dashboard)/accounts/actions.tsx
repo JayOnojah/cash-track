@@ -1,11 +1,14 @@
 "use client";
 
 import { Edit, MoreHorizontal } from "lucide-react";
+
+import { useOpenAccount } from "@/features/accounts/hooks/use-open-account";
+
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
-  DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -14,6 +17,8 @@ type Props = {
 };
 
 export const Actions = ({ id }: Props) => {
+  const { onOpen } = useOpenAccount();
+
   return (
     <>
       <DropdownMenu>
@@ -23,8 +28,8 @@ export const Actions = ({ id }: Props) => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem disabled={false} onClick={() => {}}>
-            <Edit /> Edit
+          <DropdownMenuItem disabled={false} onClick={() => onOpen(id)}>
+            <Edit className="size-4 mr-2" /> Edit
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
