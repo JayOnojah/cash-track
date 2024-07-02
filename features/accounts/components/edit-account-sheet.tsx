@@ -10,8 +10,6 @@ import { useEditAccount } from "@/features/accounts/api/use-edit-account";
 import { useOpenAccount } from "@/features/accounts/hooks/use-open-account";
 import { useDeleteAccount } from "@/features/accounts/api/use-delete-account";
 
-import { useConfirm } from "@/hooks/use-confirm";
-
 import {
   Sheet,
   SheetTitle,
@@ -19,6 +17,7 @@ import {
   SheetContent,
   SheetDescription,
 } from "@/components/ui/sheet";
+import { useConfirm } from "@/hooks/use-confirm";
 
 const formSchema = insertAccountSchema.pick({
   name: true,
