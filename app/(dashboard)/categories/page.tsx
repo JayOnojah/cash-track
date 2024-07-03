@@ -52,7 +52,7 @@ const CategoriesPage = () => {
         </CardHeader>
         <CardContent>
           <DataTable
-            filterKey="email"
+            filterKey="name"
             columns={columns}
             data={categories}
             onDelete={(row) => {
