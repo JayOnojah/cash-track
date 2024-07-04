@@ -22,6 +22,13 @@
       "when": 1719947226651,
       "tag": "0002_friendly_marten_broadcloak",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1720056869784,
+      "tag": "0003_loving_tana_nile",
+      "breakpoints": true
     }
   ]
 }
