@@ -6,13 +6,13 @@ import { zValidator } from "@hono/zod-validator";
 import { clerkMiddleware, getAuth } from "@hono/clerk-auth";
 import { and, eq, gte, lte, desc, inArray, sql } from "drizzle-orm";
 
-import { db } from "@/db/drizzle";
 import {
   accounts,
   categories,
   transactions,
   insertTransactionSchema,
 } from "@/db/schema";
+import { db } from "@/db/drizzle";
 
 const app = new Hono()
   .get(
@@ -62,7 +62,7 @@ const app = new Hono()
           and(
             accountId ? eq(transactions.accountId, accountId) : undefined,
             eq(accounts.userId, auth.userId),
-            gte(transactions.date, endDate),
+            gte(transactions.date, startDate),
             lte(transactions.date, endDate)
           )
         )
