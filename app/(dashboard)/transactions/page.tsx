@@ -47,7 +47,7 @@ const TransactionsPage = () => {
           </CardTitle>
           <Button onClick={newTransaction.onOpen}>
             <Plus className="size-4 mr-2" />
-            Add New
+            New Transaction
           </Button>
         </CardHeader>
         <CardContent>

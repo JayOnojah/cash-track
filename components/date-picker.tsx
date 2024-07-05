@@ -14,8 +14,8 @@ import { Calendar } from "@/components/ui/calendar";
 
 type Props = {
   value?: Date;
-  onChange?: SelectSingleEventHandler;
   disabled?: boolean;
+  onChange?: SelectSingleEventHandler;
 };
 
 export const DatePicker = ({ value, onChange, disabled }: Props) => {

@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { insertTransactionSchema } from "@/db/schema";
 import { DatePicker } from "@/components/date-picker";
 import { AmountInput } from "@/components/amount-input";
+import { convertAmountToMilliunits } from "@/lib/utils";
 
 import {
   Form,
@@ -47,10 +48,10 @@ type Props = {
 
 export const TransactionForm = ({
   id,
-  defaultValues,
   onSubmit,
   onDelete,
   disabled,
+  defaultValues,
   accountOptions,
   categoryOptions,
   onCreateAccount,
@@ -62,7 +63,13 @@ export const TransactionForm = ({
   });
 
   const handleSubmit = (values: FormValues) => {
-    console.log({ values });
+    const amount = parseFloat(values.amount);
+    const amountInMilliunits = convertAmountToMilliunits(amount);
+
+    onSubmit({
+      ...values,
+      amount: amountInMilliunits,
+    });
   };
 
   const handleDelete = () => {
@@ -178,7 +185,7 @@ export const TransactionForm = ({
           )}
         />
         <Button className="w-full" disabled={disabled}>
-          {id ? "Save Changes" : "Create Account"}
+          {id ? "Save Changes" : "Create Transaction"}
         </Button>
         {!!id && (
           <Button
@@ -187,7 +194,7 @@ export const TransactionForm = ({
             onClick={handleDelete}
             className="w-full"
             variant="outline">
-            <Trash className="size-4 mr-2" /> Delete Account
+            <Trash className="size-4 mr-2" /> Delete Transaction
           </Button>
         )}
       </form>
