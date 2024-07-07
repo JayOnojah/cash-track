@@ -72,7 +72,7 @@ const TransactionsPage = () => {
           <div className="flex items-center gap-x-2">
             <Button onClick={newTransaction.onOpen}>
               <Plus className="size-4 mr-2" />
-              Add New
+              New Transaction
             </Button>
             <UploadButton onUpload={() => {}} />
           </div>

@@ -94,7 +94,7 @@ export const EditTransactionSheet = () => {
   const defaultValues = transactionQuery.data
     ? {
         accountId: transactionQuery.data.accountId,
-        categoryId: transactionQuery.data.accountId,
+        categoryId: transactionQuery.data.categoryId,
         amount: convertAmountFromMilliunits(
           transactionQuery.data.amount
         ).toString(),

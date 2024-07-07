@@ -27,6 +27,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useConfirm } from "@/hooks/use-confirm";
 import { Trash } from "lucide-react";
+import { capitalize } from "@/lib/utils";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -76,10 +77,12 @@ export function DataTable<TData, TValue>({
       <ConfirmDialog />
       <div className="flex items-center py-4">
         <Input
-          placeholder={`Filter ${filterKey}...`}
-          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
+          placeholder={`Search by ${capitalize(filterKey)}...`}
+          value={
+            (table.getColumn(`${filterKey}`)?.getFilterValue() as string) ?? ""
+          }
           onChange={(event) =>
-            table.getColumn("name")?.setFilterValue(event.target.value)
+            table.getColumn(`${filterKey}`)?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
