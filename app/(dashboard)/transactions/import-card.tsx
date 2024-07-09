@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { format, parse } from "date-fns";
 
 import { Button } from "@/components/ui/button";
+import { convertAmountToMilliunits } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { ImportTable } from "./import-table";
@@ -50,6 +52,52 @@ export const ImportCard = ({ data, onCancel, onSubmit }: Props) => {
     });
   };
 
+  const progress = Object.values(selectedColumns).filter(Boolean).length;
+
+  const handleContinue = () => {
+    const getColumnIndex = (column: string) => {
+      return column.split("_")[1];
+    };
+
+    const mappedData = {
+      headers: headers.map((_header, index) => {
+        const columnIndex = getColumnIndex(`column_${index}`);
+        return selectedColumns[`column_${columnIndex}`] || null;
+      }),
+      body: body
+        .map((row) => {
+          const transformedRow = row.map((cell, index) => {
+            const columnIndex = getColumnIndex(`column_${index}`);
+            return selectedColumns[`column_${columnIndex}`] ? cell : null;
+          });
+
+          return transformedRow.every((item) => item === null)
+            ? []
+            : transformedRow;
+        })
+        .filter((row) => row.length > 0),
+    };
+
+    const arrayOfData = mappedData.body.map((row) => {
+      return row.reduce((acc: any, cell, index) => {
+        const header = mappedData.headers[index];
+        if (header !== null) {
+          acc[header] = cell;
+        }
+
+        return acc;
+      }, {});
+    });
+
+    const formattedData = arrayOfData.map((item) => ({
+      ...item,
+      amount: convertAmountToMilliunits(parseFloat(item.amount)),
+      date: format(parse(item.date, dateFormat, new Date()), outputFormat),
+    }));
+
+    onSubmit(formattedData);
+  };
+
   return (
     <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
       <Card className="border-none drop-shadow-sm">
@@ -57,8 +105,17 @@ export const ImportCard = ({ data, onCancel, onSubmit }: Props) => {
           <CardTitle className="text-xl line-clamp-1">
             Import Transaction
           </CardTitle>
-          <div className="flex items-center gap-x-2">
-            <Button onClick={onCancel}>Cancel</Button>
+          <div className="flex flex-col lg:flex-row gap-y-2 items-center gap-x-2">
+            <Button size="sm" onClick={onCancel} className="w-full lg:w-auto">
+              Cancel
+            </Button>
+            <Button
+              size="sm"
+              onClick={handleContinue}
+              className="w-full lg:w-auto"
+              disabled={progress < requiredOptions.length}>
+              Continue ({progress} / {requiredOptions.length})
+            </Button>
           </div>
         </CardHeader>
         <CardContent>
