@@ -11,7 +11,7 @@ import {
 
 import { BarVariant } from "@/components/bar-variant";
 import { PieVariant } from "@/components/pie-variant";
-import { LineVariant } from "@/components/line-variant";
+import { RadarVariant } from "@/components/radar-variant";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type Props = {
@@ -41,7 +41,7 @@ export const SpendingPie = ({ data = [] }: Props) => {
             <SelectItem value="pie">
               <div className="flex item-center">
                 <PieChart className="size-4 mr-2 shrink-0" />
-                <p className="line-clamp-1">Area Chart</p>
+                <p className="line-clamp-1">Pie Chart</p>
               </div>
             </SelectItem>
             <SelectItem value="radar">
@@ -70,8 +70,8 @@ export const SpendingPie = ({ data = [] }: Props) => {
         ) : (
           <>
             {chartType === "pie" && <PieVariant data={data} />}
-            {/* {chartType === "radar" && <LineVariant data={data} />}
-            {chartType === "redial" && <BarVariant data={data} />} */}
+            {chartType === "radar" && <RadarVariant data={data} />}
+            {/* {chartType === "redial" && <BarVariant data={data} />} */}
           </>
         )}
       </CardContent>
