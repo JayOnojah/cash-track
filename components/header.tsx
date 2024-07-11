@@ -20,7 +20,7 @@ export const Header = () => {
               afterSignOutUrl="/"
               appearance={{
                 elements: {
-                  userButtonAvatarBox: "w-10 h-10",
+                  userButtonAvatarBox: "size-10 border-2 border-slate-100",
                 },
               }}
             />
