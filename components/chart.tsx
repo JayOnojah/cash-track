@@ -1,10 +1,10 @@
 import { useState } from "react";
 import {
+  Loader2,
   AreaChart,
   BarChart3,
-  FileSearch,
   LineChart,
-  Loader2,
+  FileSearch,
 } from "lucide-react";
 
 import {
@@ -76,8 +76,8 @@ export const Chart = ({ data = [] }: Props) => {
           </div>
         ) : (
           <>
-            {chartType === "line" && <AreaVariant data={data} />}
-            {chartType === "area" && <LineVariant data={data} />}
+            {chartType === "area" && <AreaVariant data={data} />}
+            {chartType === "line" && <LineVariant data={data} />}
             {chartType === "bar" && <BarVariant data={data} />}
           </>
         )}

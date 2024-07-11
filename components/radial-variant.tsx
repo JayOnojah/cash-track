@@ -1,12 +1,12 @@
 import {
+  Legend,
   RadialBar,
   RadialBarChart,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 import { formatCurrency } from "@/lib/utils";
 
-const COLORS = ["#0062FF", "#1266FFF", "#FF647F", "#FF9354"];
+const COLORS = ["#0062FF", "#12C6FF", "#FF647F", "#FF9354"];
 
 type Props = {
   data?: {

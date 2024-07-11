@@ -1,10 +1,10 @@
 import {
-  Tooltip,
-  XAxis,
   Bar,
+  XAxis,
+  Tooltip,
   BarChart,
-  ResponsiveContainer,
   CartesianGrid,
+  ResponsiveContainer,
 } from "recharts";
 import { format } from "date-fns";
 

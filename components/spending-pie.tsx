@@ -72,7 +72,7 @@ export const SpendingPie = ({ data = [] }: Props) => {
           <>
             {chartType === "pie" && <PieVariant data={data} />}
             {chartType === "radar" && <RadarVariant data={data} />}
-            {chartType === "redial" && <RadialVariant data={data} />}
+            {chartType === "radial" && <RadialVariant data={data} />}
           </>
         )}
       </CardContent>

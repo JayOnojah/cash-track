@@ -1,16 +1,16 @@
 import {
+  Pie,
   Cell,
   Legend,
-  Pie,
+  Tooltip,
   PieChart,
   ResponsiveContainer,
-  Tooltip,
 } from "recharts";
 
 import { formatPercentage } from "@/lib/utils";
 import { CategoryTooltip } from "@/components/category-tooltip";
 
-const COLORS = ["#0062FF", "#1266FFF", "#FF647F", "#FF9354"];
+const COLORS = ["#0062FF", "#12C6FF", "#FF647F", "#FF9354"];
 
 type Props = {
   data?: {
@@ -63,11 +63,11 @@ export const PieVariant = ({ data }: Props) => {
           paddingAngle={2}
           fill="#8884d8"
           dataKey="value"
-          labelLine={false}
-        />
-        {data?.map((_entry, index) => (
-          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-        ))}
+          labelLine={false}>
+          {data?.map((_entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          ))}
+        </Pie>
       </PieChart>
     </ResponsiveContainer>
   );

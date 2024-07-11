@@ -1,12 +1,13 @@
 import {
-  Tooltip,
-  XAxis,
   Area,
+  XAxis,
+  Tooltip,
   AreaChart,
-  ResponsiveContainer,
   CartesianGrid,
+  ResponsiveContainer,
 } from "recharts";
 import { format } from "date-fns";
+
 import { CustomTooltip } from "@/components/custom-tooltip";
 
 type Props = {
