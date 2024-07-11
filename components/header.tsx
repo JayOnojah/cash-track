@@ -16,7 +16,14 @@ export const Header = () => {
             <Navigation />
           </div>
           <ClerkLoaded>
-            <UserButton afterSignOutUrl="/" />
+            <UserButton
+              afterSignOutUrl="/"
+              appearance={{
+                elements: {
+                  userButtonAvatarBox: "w-10 h-10",
+                },
+              }}
+            />
           </ClerkLoaded>
           <ClerkLoading>
             <Loader2 className="size-8 animate-spin text-slate-400" />
