@@ -1,4 +1,4 @@
-# TrustBank
+# TrustBank (Finance SaaS)
 
 <div align="center">
   <br />
