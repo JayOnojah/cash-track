@@ -11,7 +11,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Trust Bank",
+  title: "CashTrack - Your true financial manager",
   description: "Your true financial manager",
 };
 

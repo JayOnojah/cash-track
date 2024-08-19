@@ -36,6 +36,8 @@ export const Select = ({
       styles={{
         control: (base) => ({
           ...base,
+          padding: "1px 2.5px",
+          borderRadius: "0.375rem",
           borderColor: "#e2e8f0",
           ":hover": {
             borderColor: "#e2e8f0",

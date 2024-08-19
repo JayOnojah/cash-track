@@ -9,7 +9,7 @@ export default function Page() {
         <div className="text-center space-y-2 pt-16">
           <h1 className="font-bold text-3xl text-[#2E2A47]">Welcome Back!</h1>
           <p className="text-base text-[#7E8CA0]">
-            Please login to your Trust Bank account
+            Please login to your CashTrack account
           </p>
         </div>
         <div className="flex items-center justify-center mt-4">
