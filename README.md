@@ -1,4 +1,4 @@
-# TrustBank (Finance SaaS)
+# CashTrack (Finance SaaS)
 
 <div align="center">
   <br />
