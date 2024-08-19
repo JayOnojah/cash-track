@@ -2,8 +2,8 @@
 
 <div align="center">
   <br />
-    <a href="https://trust-bank.onojah.com/" target="_blank">
-      <img src="https://i.imgur.com/iKF2DDo.png" alt="Trust Bank Dashboard">
+    <a href="https://cash-track.onojah.com/" target="_blank">
+      <img src="https://i.imgur.com/w1Rvfg4.png" alt="Cash Track Dashboard">
     </a>
   <br />
 
